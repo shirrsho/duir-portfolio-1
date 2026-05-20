@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Color Palette ─── */
+  --color-green: #0A1535;
+  --color-green-light: #172C60;
+  --color-green-mid: #0F1D48;
+  --color-green-dark: #060C22;
+  --color-gold: #C9A84C;
+  --color-gold-light: #DDB96A;
+  --color-gold-dark: #A8872F;
+  --color-gold-muted: #C9A84C33;
+  --color-red: #A51818;
+  --color-red-muted: rgba(165, 24, 24, 0.15);
+  --color-warm-white: #F8F7F3;
+  --color-light-gray: #E8E8E4;
+  --color-body-text: #3D3D38;
+  --color-muted-text: #8B8B85;
+  --color-card-bg: #FFFFFF;
+
+  /* ─── Typography ─── */
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* ─── Custom Spacing ─── */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+
+  /* ─── Border Radius ─── */
+  --radius-card: 1.25rem;
+  --radius-pill: 9999px;
+
+  /* ─── Shadows ─── */
+  --shadow-card: 0 4px 24px rgba(10, 21, 53, 0.10);
+  --shadow-card-hover: 0 20px 60px rgba(10, 21, 53, 0.20);
+  --shadow-modal: 0 32px 96px rgba(10, 21, 53, 0.36);
+}
+
+/* ─── Base Styles ─── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-green);
+    color: var(--color-body-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-green);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-green);
+  }
+
+  /* Focus ring for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+/* ─── Utility Classes ─── */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-gold {
+    color: var(--color-gold);
+  }
+
+  .text-navy {
+    color: var(--color-green);
+  }
+
+  .text-warm-white {
+    color: var(--color-warm-white);
+  }
+
+  .text-muted {
+    color: var(--color-muted-text);
+  }
+
+  .bg-navy {
+    background-color: var(--color-green);
+  }
+
+  .bg-navy-light {
+    background-color: var(--color-green-light);
+  }
+
+  .bg-warm-white {
+    background-color: var(--color-warm-white);
+  }
+
+  .bg-light-gray {
+    background-color: var(--color-light-gray);
+  }
+
+  .border-gold {
+    border-color: var(--color-gold);
+  }
+
+  .border-gold-muted {
+    border-color: rgba(201, 168, 76, 0.25);
+  }
+
+  /* Gradient utilities */
+  .gradient-navy {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-mid) 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      180deg,
+      var(--color-green) 0%,
+      rgba(10, 21, 53, 0.95) 60%,
+      rgba(10, 21, 53, 0.85) 100%
+    );
+  }
+
+  /* Gold shimmer line */
+  .gold-line {
+    display: block;
+    width: 48px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* Card styles */
+  .card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(10, 21, 53, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  }
+
+  .text-red {
+    color: var(--color-red);
+  }
+  .bg-red {
+    background-color: var(--color-red);
+  }
+  .border-red {
+    border-color: var(--color-red);
+  }
+
+  /* Scrollbar styling */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─── Responsive Utilities ─── */
+@media (max-width: 640px) {
+  /* Reduce section padding on small screens */
+  section {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  /* Hero stays full viewport */
+  section:first-of-type {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Programme header wrap on mobile */
+  .program-header-grid {
+    flex-direction: column !important;
+  }
+}
+
+/* ─── Smooth image load ─── */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* ─── Print styles ─── */
+@media print {
+  nav, footer { display: none; }
+  * { background: white !important; color: black !important; }
+}
